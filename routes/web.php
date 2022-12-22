@@ -13,6 +13,7 @@ use App\Http\Livewire\Admin\Roles\Roles;
 use App\Http\Livewire\Admin\SentEmails\SentEmails;
 use App\Http\Livewire\Admin\SentEmails\SentEmailsBody;
 use App\Http\Livewire\Admin\Settings\Settings;
+use App\Http\Livewire\Admin\Users\AddUser;
 use App\Http\Livewire\Admin\Users\EditUser;
 use App\Http\Livewire\Admin\Users\ShowUser;
 use App\Http\Livewire\Admin\Users\Users;
@@ -28,7 +29,6 @@ Route::middleware(['web', 'guest'])->group(function () {
 
     Route::get('register', [RegisterController::class, 'index'])->name('register');
     Route::post('register', [RegisterController::class, 'store']);
-
     Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
     Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
@@ -63,4 +63,7 @@ Route::middleware(['web', 'auth', 'activeUser', 'IpCheckMiddleware', 'role:admin
     Route::get('settings/system-settings', Settings::class)->name('admin.settings');
     Route::get('settings/roles', Roles::class)->name('admin.settings.roles.index');
     Route::get('settings/roles/{role}/edit', Edit::class)->name('admin.settings.roles.edit');
+
+
+    Route::get('adduser', AddUser::class)->name('adduser');
 });

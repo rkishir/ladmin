@@ -68,16 +68,16 @@ class Profile extends Base
         if ($this->image !== '') {
             Storage::disk('public')->delete($this->user->image);
 
-            $token = md5(random_int(1, 10).microtime());
-            $name  = $token.'.jpg';
+            $token = md5(random_int(1, 10) . microtime());
+            $name  = $token . '.jpg';
             $img   = Image::make($this->image)->encode('jpg')->resize(100, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->stream();
 
-            Storage::disk('public')->put('users/'.$name, $img);
+            Storage::disk('public')->put('users/' . $name, $img);
 
-            $this->user->image = 'users/'.$name;
+            $this->user->image = 'users/' . $name;
         }
 
         $this->user->name  = $this->name;
@@ -86,7 +86,7 @@ class Profile extends Base
         $this->user->save();
 
         add_user_log([
-            'title'        => "updated ".$this->name."'s profile",
+            'title'        => "updated " . $this->name . "'s profile",
             'reference_id' => $this->user->id,
             'link'         => route('admin.users.edit', ['user' => $this->user->id]),
             'section'      => 'Users',

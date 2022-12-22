@@ -72,7 +72,7 @@ class Invite extends Base
 
         //generate image
         $name      = get_initials($user->name);
-        $id        = $user->id.'.png';
+        $id        = $user->id . '.png';
         $path      = 'users/';
         $imagePath = create_avatar($name, $id, $path);
 
@@ -90,7 +90,7 @@ class Invite extends Base
         Mail::send(new SendInviteMail($user));
 
         add_user_log([
-            'title'        => "invited ".$user->name,
+            'title'        => "invited " . $user->name,
             'reference_id' => $user->id,
             'section'      => 'Auth',
             'type'         => 'Join'

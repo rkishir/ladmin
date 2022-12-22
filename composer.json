@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "doctrine/dbal": "^3.5",
         "fruitcake/laravel-cors": "^2.2.0",
         "guzzlehttp/guzzle": "^7.4.1",
         "intervention/image": "^2.7",
@@ -14,12 +15,12 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+        "lasserafn/php-initial-avatar-generator": "^4.2",
         "livewire/livewire": "^2.10",
         "mhmiton/laravel-modules-livewire": "^1.5",
         "nwidart/laravel-modules": "^9.0",
         "robthree/twofactorauth": "^1.8",
-        "victorybiz/laravel-simple-select": "^1.4",
-        "lasserafn/php-initial-avatar-generator": "^4.2"
+        "victorybiz/laravel-simple-select": "^1.4"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",

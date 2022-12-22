@@ -52,7 +52,7 @@ class RegisterController extends Controller
 
         //generate image
         $name      = get_initials($user->name);
-        $id        = $user->id.'.png';
+        $id        = $user->id . '.png';
         $path      = 'users/';
         $imagePath = create_avatar($name, $id, $path);
 
@@ -68,7 +68,7 @@ class RegisterController extends Controller
         ]);
 
         add_user_log([
-            'title'        => "registered ".$user->name,
+            'title'        => "registered " . $user->name,
             'reference_id' => $user->id,
             'section'      => 'Auth',
             'type'         => 'Register'

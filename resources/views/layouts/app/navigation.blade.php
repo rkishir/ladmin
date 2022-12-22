@@ -51,4 +51,5 @@
 
 @if(can('view_users'))
     <x-nav.link route="admin.users.index" icon="fas fa-users">Users</x-nav.link>
+    <x-nav.link route="adduser" icon="fas fa-users">Add Users</x-nav.link>
 @endif
