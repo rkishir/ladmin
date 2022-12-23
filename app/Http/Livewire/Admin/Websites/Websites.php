@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+namespace App\Http\Livewire\Admin\Websites;
 
-namespace App\Http\Livewire\Admin\Roles;
-
+use Livewire\Component;
 use App\Http\Livewire\Base;
-use App\Models\Roles\Role;
+use App\Models\Website;
 use Illuminate\Contracts\View\View;
 use Livewire\WithPagination;
-
 use function view;
 
-class Roles extends Base
+class Websites extends Base
 {
     use WithPagination;
 
@@ -22,14 +20,12 @@ class Roles extends Base
 
     public function render(): View
     {
-        return view('livewire.admin.roles.index');
+        return view('livewire.admin.websites.index');
     }
-
     public function builder()
     {
-        return Role::orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+        return Website::orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
     }
-
     public function sortBy(string $field): void
     {
         if ($this->sortField === $field) {
@@ -41,7 +37,7 @@ class Roles extends Base
         $this->sortField = $field;
     }
 
-    public function roles(): object
+    public function websites(): object
     {
         $query = $this->builder();
 
@@ -52,7 +48,7 @@ class Roles extends Base
         return $query->paginate($this->paginate);
     }
 
-    public function deleteRole($id): void
+    public function deleteWebsite($id): void
     {
         $this->builder()->findOrFail($id)->delete();
 

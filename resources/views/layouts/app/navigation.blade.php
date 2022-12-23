@@ -32,6 +32,18 @@
     <x-nav.link route="admin" icon="fas fa-home">Dashboard</x-nav.link>
 @endif
 
+@if(can('view_users') )
+    <x-nav.group label="Websites" route="admin.websites.index" icon="fas fa-cogs">
+        <x-nav.group-item route="admin.websites.index" icon="far fa-circle">View Websites</x-nav.group-item>
+    </x-nav.group>
+@endif
+@if(can('view_users'))
+    <x-nav.group label="Users" icon="fas fa-users">
+        <x-nav.group-item route="admin.users.index" icon="fas fa-users">view Users</x-nav.group-item>
+        <x-nav.group-item route="adduser" icon="fas fa-users">Add User</x-nav.group-item>
+    </x-nav.group>
+@endif
+
 @if(can('view_audit_trails') || can('view_sent_emails'))
     <x-nav.group label="Settings" route="admin.settings" icon="fas fa-cogs">
         @if(can('view_audit_trails'))
@@ -47,9 +59,4 @@
             <x-nav.group-item route="admin.settings.roles.index" icon="far fa-circle">Roles</x-nav.group-item>
         @endif
     </x-nav.group>
-@endif
-
-@if(can('view_users'))
-    <x-nav.link route="admin.users.index" icon="fas fa-users">Users</x-nav.link>
-    <x-nav.link route="adduser" icon="fas fa-users">Add Users</x-nav.link>
 @endif
