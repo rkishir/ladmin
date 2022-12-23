@@ -19,6 +19,9 @@ use App\Http\Livewire\Admin\Users\ShowUser;
 use App\Http\Livewire\Admin\Users\Users;
 use App\Http\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Admin\Websites\Websites;
+use App\Http\Livewire\Admin\Websites\WebsiteEdit;
+
 
 Route::get('/', Welcome::class);
 
@@ -63,7 +66,9 @@ Route::middleware(['web', 'auth', 'activeUser', 'IpCheckMiddleware', 'role:admin
     Route::get('settings/system-settings', Settings::class)->name('admin.settings');
     Route::get('settings/roles', Roles::class)->name('admin.settings.roles.index');
     Route::get('settings/roles/{role}/edit', Edit::class)->name('admin.settings.roles.edit');
-
-
+    // Users
     Route::get('adduser', AddUser::class)->name('adduser');
+    // Websites
+    Route::get('websites', Websites::class)->name('admin.websites.index');
+    Route::get('websites/{website}/edit', WebsiteEdit::class)->name('admin.websites.edit');
 });
