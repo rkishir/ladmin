@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Websites\Websites;
 use App\Http\Livewire\Admin\Websites\WebsiteEdit;
 use App\Http\Livewire\Admin\Brands\Brands;
+use App\Http\Livewire\Admin\Forms\Form;
 
 
 Route::get('/', Welcome::class);
@@ -75,4 +76,9 @@ Route::middleware(['web', 'auth', 'activeUser', 'IpCheckMiddleware', 'role:admin
     // Brands
     Route::get('brands', Brands::class)->name('admin.brands.index');
     // Route::get('brands/{brand}/edit', WebsiteEdit::class)->name('admin.websites.edit');
+    // Formdesign
+    Route::get('forms', Form::class)->name('admin.forms.index');;
+
+    // Route::get('brands/{brand}/edit', WebsiteEdit::class)->name('admin.websites.edit');
+
 });
