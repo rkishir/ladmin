@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\brands;
+use App\Models\Brand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BrandsFactory extends Factory
+class BrandFactory extends Factory
 {
-    protected $model = brands::class;
+    protected $model = Brand::class;
 
     public function definition(): array
     {

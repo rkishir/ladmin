@@ -6,7 +6,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class BrandsSeeder extends Seeder
+class BrandSeeder extends Seeder
 {
     public function run()
     {

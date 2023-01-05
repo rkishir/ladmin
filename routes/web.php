@@ -21,6 +21,7 @@ use App\Http\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Websites\Websites;
 use App\Http\Livewire\Admin\Websites\WebsiteEdit;
+use App\Http\Livewire\Admin\Brands\Brands;
 
 
 Route::get('/', Welcome::class);
@@ -71,4 +72,7 @@ Route::middleware(['web', 'auth', 'activeUser', 'IpCheckMiddleware', 'role:admin
     // Websites
     Route::get('websites', Websites::class)->name('admin.websites.index');
     Route::get('websites/{website}/edit', WebsiteEdit::class)->name('admin.websites.edit');
+    // Brands
+    Route::get('brands', Brands::class)->name('admin.brands.index');
+    // Route::get('brands/{brand}/edit', WebsiteEdit::class)->name('admin.websites.edit');
 });
